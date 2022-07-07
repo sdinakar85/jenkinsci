@@ -10,3 +10,6 @@ A simple Jenkins CI setup to deploy app in to K8 cluster
 kubernetes
 kubernetes continuous deploy 
 ```
+
+### jnlp-node docker image to be used
+`jenkinsci/jnlp-slave:latest`
