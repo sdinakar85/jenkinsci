@@ -1,21 +1,10 @@
-pipeline {
+node ("kubepod") {
 
-  agent { label 'kubepod' }
+    stage ("checkout code") {
+        checkout scm
+    } 
 
-  stages {
-
-    stage('Checkout Source') {
-      steps {
-        git url:'https://github.com/sdinakar85/jenkinsci.git', branch:'main'
-      }
+    stage('Deploy App') { 
+        kubernetesDeploy(configs: "nginx.yaml", kubeconfigId: "mykubeconfig")
     }
-
-    stage('Deploy App') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "nginx.yaml", kubeconfigId: "mykubeconfig")
-        }
-      }
-    }
-  }
 }
