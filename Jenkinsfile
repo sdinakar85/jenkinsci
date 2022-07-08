@@ -16,7 +16,9 @@ node ("kubepod") {
 
     stage('Deploy App') { 
         withKubeConfig(credentialsId: 'myKubeConfig') {
+            sh '''
             ~/.local/bin/kubectl apply -f nginx.yaml
+            '''
         }
     }
 }
