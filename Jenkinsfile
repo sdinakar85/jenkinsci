@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/sdinakar85/jenkinsci.git'
+        git url:'https://github.com/sdinakar85/jenkinsci.git',, branch:'main'
       }
     }
 
